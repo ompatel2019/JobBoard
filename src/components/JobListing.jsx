@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const JobListing = ({ job }) => {
     const [showMore, setShowMore] = useState(false);
@@ -21,7 +22,7 @@ const JobListing = ({ job }) => {
                 <i class="bi bi-geo-alt"></i>
                 <div className="text-orange-700 mb-3"><i className="fa-solid fa-location-dot text-lg"></i> {job.location}</div>
             </div>
-            <a className="h-[36px] bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-center text-sm">Read More</a>
+            <Link className="h-[36px] bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-center text-sm">Read More</Link>
             </div>
         </div>
         </div>
