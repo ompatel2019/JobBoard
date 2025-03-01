@@ -5,14 +5,14 @@ import Spinners from './Spinners';
 
 const JobListings = ({isHome}) => {
   const [jobs, setJobs] = useState([]);
-  const jobListings = isHome ? jobs.slice(0,3) : jobs;
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
+      const apiUrl = isHome ? 'api/jobs?_limit=3' : 'api/jobs';
       setLoading(true); 
       try {
-        const response = await fetch('http://localhost:8000/jobs');
+        const response = await fetch(apiUrl);
         const data = await response.json();
         setJobs(data);
       } catch (error) {
@@ -34,7 +34,7 @@ const JobListings = ({isHome}) => {
             <Spinners loading={loading}/>
           : 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {jobListings.map((job) => (
+              {jobs.map((job) => (
                 <JobListing key={job.id} job={job} />
               ))}
             </div>
