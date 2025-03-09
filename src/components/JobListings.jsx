@@ -2,7 +2,6 @@ import React, { useEffect, useState, CSSProperties } from 'react'
 import JobListing from './JobListing'
 import Spinners from './Spinners';
 
-
 const JobListings = ({isHome}) => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(false);

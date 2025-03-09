@@ -22,7 +22,7 @@ const JobListing = ({ job }) => {
                 <i class="bi bi-geo-alt"></i>
                 <div className="text-orange-700 mb-3"><i className="fa-solid fa-location-dot text-lg"></i> {job.location}</div>
             </div>
-            <Link className="h-[36px] bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-center text-sm">Read More</Link>
+            <Link to={`/jobs/${job.id}`} className="h-[36px] bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-center text-sm">Read More</Link>
             </div>
         </div>
         </div>
