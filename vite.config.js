@@ -8,7 +8,7 @@ export default defineConfig({
     port: 3000,
     proxy: { 
       '/api': { 
-        target: 'https://jobboard.up.railway.app',
+        target: 'http://localhost:8000',
         changeOrigin: true, 
         rewrite: (path) => path.replace(/^\/api/, ''),
       }

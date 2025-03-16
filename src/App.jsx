@@ -41,7 +41,6 @@ const App = () => {
     }); 
     return res.json();
   }
-
    
   const router = createBrowserRouter(
     createRoutesFromElements(
