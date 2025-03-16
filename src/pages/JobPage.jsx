@@ -1,8 +1,18 @@
 import React from 'react'
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 
-const JobPage = () => {
-    const job = useLoaderData();
+const JobPage = ({deleteJob}) => {
+  const job = useLoaderData();
+  const navigate = useNavigate()
+
+  const onDeleteClick = (jobId) => { 
+    const confirm = window.confirm('Are you sure you want to delete this listing?')
+
+    if (!confirm) return;
+
+    deleteJob(jobId)
+    return navigate('/jobs');
+  } 
   return (
       <>
         <section>
@@ -11,7 +21,7 @@ const JobPage = () => {
               to="/jobs"
               className="text-indigo-500 hover:text-indigo-800 flex items-center"
             >
-              <i class="bi bi-arrow-left-circle mr-1"></i> Back to Job Listings
+              <i className="bi bi-arrow-left-circle mr-1"></i> Back to Job Listings
             </Link>
           </div>
         </section>
@@ -26,7 +36,7 @@ const JobPage = () => {
                     {job.title}
                   </h1>
                   <div className="text-gray-500 mb-4 flex align-middle justify-center md:justify-start">
-                    <i class="bi bi-geo-alt mr-1"></i>
+                    <i className="bi bi-geo-alt mr-1"></i>
                     <p className="text-orange-700">{job.location}</p>
                   </div>
                 </div>
@@ -66,7 +76,7 @@ const JobPage = () => {
                   >
                     Edit Job
                   </Link>
-                  <button
+                  <button onClick={() => onDeleteClick(job.id)}
                     className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
                   >
                     Delete Job
