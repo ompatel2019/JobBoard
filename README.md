@@ -20,7 +20,7 @@ A **React + Vite** application to manage job listings. Users can add, view, edit
 
 1. **Clone** this repository:
    ```bash
-   git clone https://github.com/your-username/jobboard.git
+   git clone https://github.com/ompatel2019/jobboard.git
    cd jobboard
    ```
 
