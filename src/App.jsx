@@ -16,35 +16,32 @@ import EditJobsPage from './pages/EditJobsPage';
 const App = () => {
   // Add new job
   const addJob = async (newJob) => { 
-    const res = await fetch('/api/jobs', {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/jobs`, {
       method: 'POST', 
-      headers: { 
-        'Content-Type': 'application/json',
-      }, 
+      headers: { 'Content-Type': 'application/json' }, 
       body: JSON.stringify(newJob),
     });
-    return
-  }
-  
-  // Delete job 
-  const deleteJob = async (id) => { 
-    const res = await fetch(`/api/jobs/${id}`, {
-      method: 'DELETE', 
-    });
-    return
+    return res.json();
   }
 
-  // Update job 
+  // Delete job
+  const deleteJob = async (id) => { 
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/jobs/${id}`, {
+      method: 'DELETE', 
+    });
+    return res.ok;
+  }
+
+  // Update job
   const updateJob = async (job) => { 
-    const res = await fetch(`/api/jobs/${job.id}`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/jobs/${job.id}`, {
       method: 'PUT', 
-      headers: { 
-        'Content-Type': 'application/json',
-      }, 
+      headers: { 'Content-Type': 'application/json' }, 
       body: JSON.stringify(job),
     }); 
-    return
+    return res.json();
   }
+
    
   const router = createBrowserRouter(
     createRoutesFromElements(

@@ -93,10 +93,14 @@ const JobPage = ({deleteJob}) => {
   );
 };
 
-const jobLoader = async ({ params}) => { 
-    const response = await fetch(`/api/jobs/${params.id}`); 
-    const data = await response.json();
-    return data;
-}
+const jobLoader = async ({ params }) => { 
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/jobs/${params.id}`); 
+  if (!response.ok) {
+    throw new Error('Job not found');
+  }
+  const data = await response.json();
+  return data;
+};
+
 
 export { JobPage as default, jobLoader };
