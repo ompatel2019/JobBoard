@@ -1,7 +1,3 @@
-Below is a suggested **README.md** you can replace your current one with, reflecting the **React + Vite** Job Board app we built:
-
----
-
 # JobBoard
 
 A **React + Vite** application to manage job listings. Users can add, view, edit, and delete jobs, with data stored via a mock JSON server. This project demonstrates fundamental React concepts, React Router for client-side routing, and Tailwind CSS for styling.
